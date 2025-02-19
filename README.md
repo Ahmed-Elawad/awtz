@@ -17,6 +17,9 @@ A collection of handy scripts I used more than once.
 - [Repo Butler Utility](#repo-butler-utility)
   - [Features](#features-1)
   - [Usage Examples](#usage-examples-1)
+- [Workflow Butler Utility](#workflow-butler-utility)
+  - [Features](#features-2)
+  - [Usage Examples](#usage-examples-2)
 
 ---
 
@@ -96,5 +99,36 @@ Run the script with relevant flags:
 ```bash
 # Automatically commit removal of .github/workflows and push the result:
 ./repo-butler.sh -A -P
+```
+
+## Workflow Butler Utility
+
+The `workflow-butler.sh` script is a helper tool for managing bulk deletions of
+workflow runs in a GitHub repository. It allows you to:
+
+- **Batch delete workflow runs** with a simple command.
+- **Archive the run data** locally before removal for later reference.
+
+### Features
+
+<details>
+  <summary><strong>Click to expand feature details</strong></summary>
+
+- **Prompts for repository info:**  
+  Let's you enter the GitHub owner and repository name before bulk deletion.
+
+- **Archives workflow runs:**  
+  Saves JSON data of each run in a timestamped folder before deleting runs.
+
+- **Pagination handling:**  
+  Uses GitHub's API to fetch runs page by page, processing them in chunks.
+
+</details>
+
+### Usage Examples
+
+```bash
+# Bulk delete workflow runs for a repo, archiving metadata:
+./workflow-butler.sh
 
 
